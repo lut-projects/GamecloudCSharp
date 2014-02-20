@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="EventClass.cs" />
     <Compile Include="GamecloudCallbacks.cs" />
-    <Compile Include="GamecloudHelper.cs" />
     <Compile Include="GamecloudManager.cs" />
     <Compile Include="GamecloudTypeClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
