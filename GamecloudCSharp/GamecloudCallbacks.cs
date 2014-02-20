@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RestSharp;
+using RestSharp.Deserializers;
 
 namespace Gamecloud
 {
@@ -47,11 +48,38 @@ namespace Gamecloud
             } // End of get
         } // End of Instace()
 
-        public void HandleResponse(IRestResponse response)
+        /// <summary>
+        /// Handles the Get Item Response from the Gamecloud
+        /// </summary>
+        /// <param name="response">The response received from the Gamecloud</param>
+        public void HandleItemGetResponse(IRestResponse response)
         {
-            // And write the response
-            Console.WriteLine(response.Content);
-
+            JsonDeserializer deserializer = new JsonDeserializer();
+            ItemGamecloud result = deserializer.Deserialize<ItemGamecloud>(response);
         }
-    }
-}
+
+        /// <summary>
+        /// Handles the Get Achievement Response from the Gamecloud
+        /// </summary>
+        /// <param name="response">The response received from the Gamecloud</param>
+        public void HandleAchievementGetResponse(IRestResponse response)
+        {
+            JsonDeserializer deserializer = new JsonDeserializer();
+            AchievementGamecloud result = deserializer.Deserialize<AchievementGamecloud>(response);
+        }
+
+        /// <summary>
+        /// Handles the Get Event Response from the Gamecloud
+        /// </summary>
+        /// <param name="response">The response received from the Gamecloud</param>
+        public void HandleEventGetResponse(IRestResponse response)
+        {
+            JsonDeserializer deserializer = new JsonDeserializer();
+            EventGamecloud result = deserializer.Deserialize<EventGamecloud>(response);
+        }
+        
+        
+    } // End of GamecloudCallbacks class
+
+
+} // End of namespace Gamecloud
